@@ -1,0 +1,11 @@
+.send-button{
+    background: #54c7c3;
+    width:100%;
+    font-weight: 600;
+    color:#fff;
+    padding: 8px 25px;
+    }
+.bg-img{
+    background-image: url('../../../assets/bg.jfif');
+
+}    
