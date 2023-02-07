@@ -1,0 +1,4 @@
+fastapi
+onnxruntime
+PIL
+opencv-python
