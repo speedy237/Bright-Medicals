@@ -9,6 +9,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from inference import predict_image,convert_image_to_vector
 from base import Patient,User,Exam,Base
 from model import PatientCreate,UserCreate,ExamCreate,Credentials
+from predict_lung_seg import predict
+import os
+from pathlib import Path
+
 
 app = FastAPI()
 origins = [
@@ -42,25 +46,14 @@ async def predict(file: UploadFile):
     print(prediction)
     response={"prediction": prediction.tolist()}
     return JSONResponse(content=response)
-@app.post("/detect")    
-async def prediction(imagepath:str):
-    #print('image conversion')
-     # Convertir l'image téléchargée en vecteur
-    image_vector = convert_image_to_vector(imagepath)
-    # Effectuer la prédiction
-    prediction = predict_image(image_vector)
-    print(prediction)
-    return {"prediction": prediction.tolist()}    
+@app.post("/segmentation")
+async def image_segmentation(file:UploadFile):
+    origine_filename=file.file
+    path_to_save=os.path.dirname(origine_filename)+"/report.png" 
+    model_name = Path("unet-6v.pt")
+    predict(model_name, origin_filename, path_to_save)
+    return {"message": "Segmentation Process Successfully"}
 
-@app.get("/classify")
-async def convert(imagepath:str):
-    #print('image conversion')
-     # Convertir l'image téléchargée en vecteur
-    image_vector = convert_image_to_vector(imagepath)
-    # Effectuer la prédiction
-    prediction = predict_image(image_vector)
-    print(prediction)
-    return {"prediction": prediction.tolist()}    
 @app.post("/user")
 async def create_user(user: UserCreate):
     session = SessionLocal()
