@@ -33,6 +33,23 @@
                 <option value="PET">PET</option>    
             </select>   
         </div>
+       <div class="form-group d-flex">
+        <label>Symptome</label>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="Toux" id="toux"> 
+            <label class="form-check-label" for="toux">Toux</label>      
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="Cephale" id="cephale"> 
+            <label class="form-check-label" for="cephale">Cephale</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="fievre" id="fievre"> 
+            <label class="form-check-label" for="fievre">Fievre</label>
+        </div>
+
+
+       </div>
         <div class="form-group">
             <label for="Image">Image</label>
              <input type="file" name="image"  accept="image/*"  class="form-control" id="image" (change)="onFileSelected($event) "  >
