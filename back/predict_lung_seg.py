@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb 12 16:04:31 2023
-
-@author: gaelk
-"""
-
 import torch
 import torchvision
 from src.data import blend
@@ -69,8 +62,8 @@ def predict(model_name, origin_filename, path_save_image):
     
     print("Prediction Finished !")
     
-origin_filename = Path("C://Users/gaelk/Documents/NotebookAI/chestxray/val/VIRUS/person1_virus_6.jpeg")
-path_save_image = Path("report.png")
-model_name = Path("unet-6v.pt")
+#origin_filename = Path("C://Users//JORDAN//Downloads//Compressed//dataset_jordan//train//PNEUMONIA//person6_bacteria_22.jpeg")
+#path_save_image = Path("report.png")
+#model_name = Path("unet-6v.pt")
 
 #predict(model_name, origin_filename, path_save_image)

@@ -12,6 +12,7 @@ from model import PatientCreate,UserCreate,ExamCreate,Credentials
 from predict_lung_seg import predict
 import os
 from pathlib import Path
+import tempfile
 
 
 app = FastAPI()
@@ -37,7 +38,7 @@ def read_root():
 def test_api():
     return {"welcome bright-medical"}    
 @app.post("/predict")
-async def predict(file: UploadFile):
+async def predicts(file: UploadFile):
     print('image conversion')
      # Convertir l'image téléchargée en vecteur
     image_vector = convert_image_to_vector(file.file)
@@ -48,10 +49,17 @@ async def predict(file: UploadFile):
     return JSONResponse(content=response)
 @app.post("/segmentation")
 async def image_segmentation(file:UploadFile):
-    origine_filename=file.file
-    path_to_save=os.path.dirname(origine_filename)+"/report.png" 
+    filename = file.filename
+    _, ext = os.path.splitext(filename)
+    with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as temp:
+        temp.write(await file.read())
+        temp.seek(0)
+        origin_filename = temp.name 
+    path_save_image="segmentation_"+filename+".png" 
+    print("file path")
+    print(origin_filename)
     model_name = Path("unet-6v.pt")
-    predict(model_name, origin_filename, path_to_save)
+    predict(model_name, origin_filename, path_save_image)
     return {"message": "Segmentation Process Successfully"}
 
 @app.post("/user")

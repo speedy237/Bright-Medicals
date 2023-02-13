@@ -2,3 +2,9 @@ fastapi
 onnxruntime
 PIL
 opencv-python
+torch
+torchvision
+uvicorn
+pydantic
+sqlalchemy
+sqlite
