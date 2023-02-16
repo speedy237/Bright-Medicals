@@ -9,11 +9,11 @@ import { BrainComponent } from './app/components/brain/brain.component';
 
 
 const routes:Routes=[
-  {path:'home',component:HomeComponent},
+  {path:'home/:id',component:HomeComponent},
   {path:'sign-in',component:SignInComponent},
   {path:'sign-up',component:SignUpComponent},
-  {path:'lung',component:LungComponent},
-  {path:'brain',component:BrainComponent},
+  {path:'lung/:id',component:LungComponent},
+  {path:'brain/:id',component:BrainComponent},
   {path:'',redirectTo:'/sign-in',pathMatch:'full'}
 
 ]

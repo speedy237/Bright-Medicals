@@ -1,6 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Exam } from 'src/app/classes/exam';
-import { EXAMS } from 'src/app/classes/mock-exam';
+import { User } from 'src/app/classes/user';
+import { ExamService } from 'src/app/services/exam.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -10,12 +14,24 @@ import { EXAMS } from 'src/app/classes/mock-exam';
 })
 export class HomeComponent implements OnInit {
 
-  examList:Exam[]=EXAMS;
+  examList:Exam[]=[];
+  user!:User;
+  id!:number;
+  date=new Date();
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private service:UserService,private exService:ExamService) { }
   
 
   ngOnInit(): void {
+    this.id=this.route.snapshot.params['id'];
+    this.service.getUser(this.id).subscribe(data=>{
+      this.user=data;
+    })
+     this.exService.getExam().subscribe(data=>{
+      console.table(data);
+      this.examList=data;
+     })
+    
   }
 
 }

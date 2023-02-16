@@ -32,7 +32,6 @@ class Exam(Base):
     date = Column(Date, nullable=False)
     idP = Column(Integer, ForeignKey('patient.idP'))
     idU = Column(Integer, ForeignKey('user.idU'))
-    symptome = Column(String(200), nullable=False)
     images = Column(String(200), nullable=False)
     result = Column(String(200), nullable=False)
     patient = relationship("Patient", back_populates="exams")

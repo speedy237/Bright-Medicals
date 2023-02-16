@@ -19,13 +19,13 @@ class PatientCreate(BaseModel):
     nom: str
     prenom: str
     sexe: str
+    age:  int
 
 # Define the ExamCreate model for exam input
 class ExamCreate(BaseModel):
     date: str
     idP: int
     idU: int
-    symptome: str
     images:  str
     result: str
 class Credentials(BaseModel):

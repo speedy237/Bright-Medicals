@@ -1,10 +1,12 @@
+import {Patient} from './patient'
+import {User} from './user'
 export class Exam {
     id!:number;
-    name!:string;
-    surname!:string;
-    exam!:string;
-    image!:string;
-    date!:Date
+    date!:Date;
+    idP!:number;
+    idU!:number;
+    images!:string;
     result!:string
+     
 
 }

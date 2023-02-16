@@ -1,1 +1,79 @@
-<p>sign-up works!</p>
+<div class="vh" style="background-color: #54c7c3;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="../../../assets/pexels-photo-5452238.jpeg"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form (ngSubmit)="onSubmit()">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <img src="../../../assets/Blue, white and green Medical care logo.png" class="tiny w-25">
+                      <span class="h1 fw-bold mb-0">MyBright</span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="nom" class="form-control form-control-lg" name="nom" [(ngModel)]="user.nom"  required />
+                        <label class="form-label" for="nom">Name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="prenom" class="form-control form-control-lg"  name="prenom" [(ngModel)]="user.prenom"  required/>
+                        <label class="form-label" for="prenom">Surname</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <select id="grade" class="form-control form-control-lg" name="grade" [(ngModel)]="user.grade"  required>
+                            <option value="Pr.">Pr</option>
+                            <option value="Dr.">Dr</option>
+                            <option value="M.">M</option>
+                            <option value="Mme.">Mme</option>
+                        </select>
+                        <label class="form-label" for="grade">Grade</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <select id="labo" class="form-control form-control-lg" name="labo" [(ngModel)]="user.laboratoire"  required >
+                            <option value="Laqquintiny Hospital">Laquintiny</option>
+                            <option value="Yaounde  Central Hospital">YHC</option>
+                            <option value="Clinic Promoteur of Good Health">CPGH</option>
+                            <option value="Yaounde General Hospital">YGH</option>
+                        </select>
+                        <label class="form-label" for="labo">Laborotary</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="email" id="login" class="form-control form-control-lg"  name="email" [(ngModel)]="user.login"  required/>
+                      <label class="form-label" for="login">Email address</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="password" class="form-control form-control-lg" name="password" [(ngModel)]="user.password"  required />
+                      <label class="form-label" for="password">Password</label>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block"  type="submit" >Save</button>
+                    </div>
+  
+                    <a class="small text-muted" href="#!">Forgot password?</a>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">You have an account? <a routerLink="/sign-up"
+                        style="color: #393f81;">Connect here</a></p>
+                    <a href="#!" class="small text-muted">Terms of use.</a>
+                    <a href="#!" class="small text-muted">Privacy policy</a>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

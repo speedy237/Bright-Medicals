@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info static-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="../../../assets/Blue, white and green Medical care logo.png" alt="..." height="36">
@@ -9,22 +9,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="/home/{{this.id}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/lung">Lung</a>
+            <a class="nav-link active" routerLink="/lung/{{this.id}}">Lung</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/brain">Brain</a>
+            <a class="nav-link" routerLink="/brain/{{this.id}}">Brain</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/breast">Breast</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/heart">Heart</a>
+            <a class="nav-link " routerLink="/heart">Heart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" >Dr. KAMDEM Gael</a>
+            <a class="nav-link active" routerLink="/sign-in">Disconnect</a>
           </li>
         </ul>
       </div>

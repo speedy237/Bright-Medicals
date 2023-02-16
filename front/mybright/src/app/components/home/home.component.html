@@ -1,26 +1,23 @@
 <app-menu></app-menu>
 <div class="container">
-    <h1 class="text-center">Welcome to Bright-Medicals Doctor Gael</h1>
+
+    <h1 class="text-center">Welcome to Bright-Medicals {{user.grade}} {{user.nom}}</h1>
     <h3 class="text-center font-italic">Your Latest Test On Bright-Medicals</h3>
+    <h4 class="text-center font-italic">{{this.date | date: 'EEEE dd MMMM yyyy'}}</h4>
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Surname</th>
-                <th scope="col">Exam</th>
+                 
+                <th scope="col">id</th>
                 <th scope="col">Image</th>
                 <th scope="col">Date</th>
-                <th scope="col">Result</th>
+                <th scope="col">Resultat</th>
             </tr>
         </thead>
         <tbody *ngFor="let ex of examList">
             <tr>
                 <td>{{ex.id}}</td>
-                <td>{{ex.name}}</td>
-                <td>{{ex.surname}}</td>
-                <td>{{ex.exam}}</td>
-                <td>{{ex.image}}</td>
+                <td>{{ex.images}}</td>
                 <td><span>{{ex.date | date:"dd/MM/yyyy"}}</span></td>
                 <td>{{ex.result}}</td>
             </tr>
@@ -28,3 +25,4 @@
     </table>
 
 </div> 
+<app-footer></app-footer>
